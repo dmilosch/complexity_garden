@@ -1,49 +1,15 @@
-/* body {
-    background-color: #1E3E62;
-} */
-
-.svg-container {
-    float: left;
-    width: 5px;
-    height: 5px;
-    /* display: flex; */
-    /* float:left; */
-    /* position: relative; */
-    /* vertical-align: top; */
-    /* overflow: hidden; */
-}
-
-/* .svg-content {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-} */
-
-.text-container {
-    /* display: flex; */
-    float: right;
-    width: 5px;
-    height: 5px;
-    background-color: aquamarine;
-    /* float:right; */
-}
-
-.container {
-    margin:auto;
-}
-
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
 html, body {
     overflow-x: hidden;
     height: 100%;
 }
+
 body {
     background: #fff;
     padding: 0;
     margin: 0;
-    font-family: 'Varela Round', sans-serif;
+    font-family: sans-serif;
 }
+
 .header {
     display: block;
     margin: 0 auto;
@@ -55,7 +21,23 @@ body {
     height: 60px!important;
     overflow: hidden;
     z-index: 10;
+    text-align: center;
 }
+
+.header span{
+    font-weight: bold;
+    color: #fff;
+    line-height: 60px;
+}
+
+
+/* D3 SVG Definitions*/
+.svg-container {
+    float: left;
+    width: 5px;
+    height: 5px;
+}
+
 .main {
     margin: 0 auto;
     display: block;
@@ -75,7 +57,10 @@ body {
     font-weight: bold;
     letter-spacing: 1.25px;
 }
-#sidebarMenu {
+
+/* Left sidebar menu */
+
+#leftSidebarMenu {
     height: 100%;
     position: fixed;
     left: 0;
@@ -83,14 +68,15 @@ body {
     margin-top: 60px;
     transform: translateX(-250px);
     transition: transform 250ms ease-in-out;
-    background: linear-gradient(180deg, #FC466B 0%, #3F5EFB 100%);
+    /* background: linear-gradient(180deg, #FC466B 0%, #3F5EFB 100%); */
+    background: #FC466B;
 }
-.sidebarMenuInner{
+.leftSidebarMenuInner{
     margin:0;
     padding:0;
     border-top: 1px solid rgba(255, 255, 255, 0.10);
 }
-.sidebarMenuInner li{
+.leftSidebarMenuInner li{
     list-style: none;
     color: #fff;
     text-transform: uppercase;
@@ -99,28 +85,28 @@ body {
     cursor: pointer;
     border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
-.sidebarMenuInner li span{
+.leftSidebarMenuInner li span{
     display: block;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.50);
 }
-.sidebarMenuInner li a{
+.leftSidebarMenuInner li a{
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
 }
-input[type="checkbox"]:checked ~ #sidebarMenu {
+input[class="openLeftSidebarMenu"]:checked ~ #leftSidebarMenu {
     transform: translateX(0);
 }
 
-input[type=checkbox] {
+input[class="openLeftSidebarMenu"] {
     transition: all 0.3s;
     box-sizing: border-box;
     display: none;
 }
-.sidebarIconToggle {
+.leftSidebarIconToggle {
     transition: all 0.3s;
     box-sizing: border-box;
     cursor: pointer;
@@ -161,20 +147,98 @@ input[type=checkbox] {
     float: left;
     margin-top: 3px;
 }
-input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+input[class="openLeftSidebarMenu"]:checked ~ .leftSidebarIconToggle > .horizontal {
     transition: all 0.3s;
     box-sizing: border-box;
     opacity: 0;
 }
-input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+input[class="openLeftSidebarMenu"]:checked ~ .leftSidebarIconToggle > .diagonal.part-1 {
     transition: all 0.3s;
     box-sizing: border-box;
     transform: rotate(135deg);
     margin-top: 8px;
 }
-input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+input[class="openLeftSidebarMenu"]:checked ~ .leftSidebarIconToggle > .diagonal.part-2 {
     transition: all 0.3s;
     box-sizing: border-box;
     transform: rotate(-135deg);
     margin-top: -9px;
+}
+
+/* Right sidebar menu 
+The code below is similar to that one above, but I am keeping both copies as we may change them in different ways - going to combine into one later
+*/
+
+#rightSidebarMenu {
+    height: 100%;
+    position: fixed;
+    right: 0;
+    width: 350px;
+    margin-top: 60px;
+    transform: translateX(350px);
+    transition: transform 250ms ease-in-out;
+    /* background: linear-gradient(180deg, #FC466B 0%, #3F5EFB 100%); */
+    background: #FC466B;
+}
+.rightSidebarMenuInner{
+    margin:0;
+    padding:0;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+.rightSidebarMenuInner li{
+    list-style: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+.rightSidebarMenuInner li span{
+    display: block;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.50);
+}
+.rightSidebarMenuInner li a{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+input[class="openRightSidebarMenu"]:checked ~ #rightSidebarMenu {
+    transform: translateX(0);
+}
+
+input[class="openRightSidebarMenu"] {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    display: none;
+}
+.rightSidebarIconToggle {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    top: 15px;
+    right: 15px;
+    height: 30px;
+    width: 30px;
+}
+.i-circle {
+    display: inline-block;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 17px;
+    line-height: 22px; /* set to same size as width, height */
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    border-width: 3px;
+    border-color:#fff;
+    border-style: solid;
+    font-weight: bold;
 }

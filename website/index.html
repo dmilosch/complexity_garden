@@ -14,18 +14,37 @@
          https://www.sliderrevolution.com/resources/slide-menu/
          Sidebar toggle menu
          Just a test -->
-        <div class="header"></div>
-        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-        <label for="openSidebarMenu" class="sidebarIconToggle">
+        <!-- Top header -->
+        <div class="header">
+            <span>Complexity Garden</span>
+        </div>
+        <!-- Sidebar manu check-box -->
+        <input type="checkbox" class="openLeftSidebarMenu" id="openLeftSidebarMenu">
+        <label for="openLeftSidebarMenu" class="leftSidebarIconToggle">
             <div class="spinner diagonal part-1"></div>
             <div class="spinner horizontal"></div>
             <div class="spinner diagonal part-2"></div>
         </label>
-        <div id="sidebarMenu">
-            <ul class="sidebarMenuInner">
-            <li>Sidebar Menu Test</li>
+        <!-- The actual sidebar menu -->
+        <div id="leftSidebarMenu">
+            <ul class="leftSidebarMenuInner">
+            <li>Search bar</li>
+            <li>Settings</li>
             </ul>
         </div>
+        <!-- Class description sidebar -->
+        <input type="checkbox" class="openRightSidebarMenu" id="openRightSidebarMenu">
+        <label for="openRightSidebarMenu" class="rightSidebarIconToggle">
+            <span class="i-circle">i</span>
+        </label>
+        <!-- The actual sidebar text -->
+        <div id="rightSidebarMenu">
+            <ul class="rightSidebarMenuInner">
+            <li>Place text about classes here</li>
+            </ul>
+        </div>
+       
+        <!-- Graph of the classes -->
         <div id='center' class="main center">
             <div class="mainInner">
                 <div id="graph_viz" class="svg-container"></div>
