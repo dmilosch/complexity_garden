@@ -4,8 +4,9 @@
             Complexity Graph
         </title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="styles.css">
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
         <!-- Load d3.js -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://d3js.org/d3.v4.js"></script>
         <script src="https://unpkg.com/d3-arrow@0.0.25/dist/d3-arrow.min.js"></script>
     </head>
@@ -28,8 +29,9 @@
         <!-- The actual sidebar menu -->
         <div id="leftSidebarMenu">
             <ul class="leftSidebarMenuInner">
-            <li>Search bar</li>
-            <li>Settings</li>
+            <li class="leftSidebarMenuInner_li"><input type="text" id="complexity_class_search_bar" placeholder="Search classes"></li>
+            <ul id="complexity_class_search_results"></ul>
+            <script src="{{ url_for('static', filename='js/search_bar.js') }}"></script>
             </ul>
         </div>
         <!-- Class description sidebar -->
@@ -48,7 +50,7 @@
         <div id='center' class="main center">
             <div class="mainInner">
                 <div id="graph_viz" class="svg-container"></div>
-                <script src="./main.js"></script>
+                <script src="{{ url_for('static', filename='js/main.js') }}"></script>
             </div>
             </div>
         </div>
